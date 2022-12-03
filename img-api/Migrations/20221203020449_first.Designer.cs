@@ -12,7 +12,7 @@ using img_api.Data;
 namespace imgapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221202235552_first")]
+    [Migration("20221203020449_first")]
     partial class first
     {
         /// <inheritdoc />
