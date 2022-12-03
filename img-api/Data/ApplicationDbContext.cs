@@ -7,6 +7,6 @@ namespace img_api.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Person> Students { get; set; }
+        public DbSet<Person> Person { get; set; }
     }
 }
