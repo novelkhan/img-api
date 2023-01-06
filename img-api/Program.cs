@@ -28,10 +28,10 @@ if (app.Environment.IsDevelopment())
 
 
 
-// Make sure you call this before calling app.UseMvc()
-app.UseCors(
-    options => options.WithOrigins("https://img-api.azurewebsites.net/api/Person/").AllowAnyMethod()
-);
+//// Make sure you call this before calling app.UseMvc()
+//app.UseCors(
+//    options => options.WithOrigins("https://img-api.azurewebsites.net/api/Person/").AllowAnyMethod()
+//);
 
 
 app.UseHttpsRedirection();
@@ -39,5 +39,15 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+
+
+
+app.UseCors(options =>
+     options.WithOrigins("https://img-api.azurewebsites.net")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+
 
 app.Run();
