@@ -10,6 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Add services to the container.
+builder.Services.AddCors();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -24,6 +25,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
+// Make sure you call this before calling app.UseMvc()
+app.UseCors(
+    options => options.WithOrigins("http://example.com").AllowAnyMethod()
+);
+
 
 app.UseHttpsRedirection();
 
