@@ -10,7 +10,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Add services to the container.
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://example.com",
+                                "http://www.contoso.com"); /*https://img-api.azurewebsites.net*/
+        });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,27 +35,13 @@ if (app.Environment.IsDevelopment())
 }
 
 
-
-//// Make sure you call this before calling app.UseMvc()
-//app.UseCors(
-//    options => options.WithOrigins("https://img-api.azurewebsites.net/api/Person/").AllowAnyMethod()
-//);
-
-
 app.UseHttpsRedirection();
+
+
+app.UseCors();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
-
-
-
-
-app.UseCors(options =>
-     options.WithOrigins("https://img-api.azurewebsites.net")
-            .AllowAnyHeader()
-            .AllowAnyMethod());
-
 
 app.Run();
