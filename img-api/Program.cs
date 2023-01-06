@@ -14,12 +14,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AnotherPolicy",
+    options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://img-api.azurewebsites.net")
-                                .AllowAnyHeader()
-                                .AllowAnyMethod();
+            policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
         });
 });
 
@@ -39,7 +37,7 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
 
 app.UseCors();
 
