@@ -15,8 +15,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("http://example.com",
-                                "http://www.contoso.com"); /*https://img-api.azurewebsites.net*/
+            policy.WithOrigins("https://img-api.azurewebsites.net"); /*https://img-api.azurewebsites.net*/
         });
 });
 
