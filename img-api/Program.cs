@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
 
 // Make sure you call this before calling app.UseMvc()
 app.UseCors(
-    options => options.WithOrigins("https://img-api.azurewebsites.net/").AllowAnyMethod()
+    options => options.WithOrigins("https://img-api.azurewebsites.net/api/Person/").AllowAnyMethod()
 );
 
 
