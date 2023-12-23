@@ -1,0 +1,15 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace img_api.DTOs.Student
+{
+    public class StudentDTO
+    {
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Roll { get; set; }
+        [NotMapped]
+        public IFormFile Image { get; set; }
+    }
+}
