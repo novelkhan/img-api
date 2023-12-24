@@ -10,6 +10,6 @@ namespace img_api.Data
         public DbSet<Person> Person { get; set; }
         public DbSet<Man> Men { get; set; }
 
-        public DbSet<Student> students { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }

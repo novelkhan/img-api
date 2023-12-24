@@ -1,4 +1,6 @@
 using img_api.Data;
+using img_api.Interfaces;
+using img_api.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -22,6 +24,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
