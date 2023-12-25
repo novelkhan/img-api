@@ -55,7 +55,7 @@ namespace img_api.Controllers
         //POST: api/Student
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<StudentDTO>> PostStudent(StudentDTO studentDto)
+        public async Task<ActionResult<StudentDTO>> PostStudent([FromForm]StudentDTO studentDto)
         {
             var locatedID = await _studentRepository.Save(studentDto);
 
