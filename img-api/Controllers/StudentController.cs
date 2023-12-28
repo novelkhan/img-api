@@ -26,7 +26,7 @@ namespace img_api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StudentDTO>>> GetStudent()
         {
-            List<StudentDTO> students = await _studentRepository.GetAllStudentsAsync();
+            var students = await _studentRepository.GetAllStudentsAsync();
 
             if (students != null)
             {
@@ -41,7 +41,7 @@ namespace img_api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<StudentDTO>> GetStudent(int id)
         {
-            StudentDTO DesiredStudentDto = await _studentRepository.GetStudentByIdAsync(id);
+            var DesiredStudentDto = await _studentRepository.GetStudentByIdAsync(id);
 
             if (DesiredStudentDto == null)
             {
