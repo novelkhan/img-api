@@ -74,13 +74,8 @@ namespace img_api.Controllers
 
         //PUT: api/Student/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStudent(int id , StudentDTO studentDto)
+        public async Task<IActionResult> PutStudent(StudentDTO studentDto)
         {
-            if (id != studentDto.Id)
-            {
-                return BadRequest();
-            }
-
             int locatedID = await _studentRepository.StudentUpdateAsync(studentDto);
 
             if (locatedID == 0)
