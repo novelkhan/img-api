@@ -62,7 +62,8 @@ namespace img_api.Controllers
 
             if (locatedID != 0)
             {
-                return CreatedAtAction("GetStudent", new { id = studentDto.Id }, studentDto);
+                studentDto.Id = locatedID;
+                return CreatedAtAction("GetStudent", new { id = locatedID }, studentDto);
             }
             else
             {
