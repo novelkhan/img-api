@@ -25,7 +25,7 @@ namespace img_api.Controllers
 
         //GET: api/Student
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
+        public async Task<ActionResult<IEnumerable<ResponseDTO>>> GetStudent()
         {
             var students = await _studentRepository.GetAllStudentsAsync();
 
@@ -40,7 +40,7 @@ namespace img_api.Controllers
 
         //GET: api/Student/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Student>> GetStudent(int id)
+        public async Task<ActionResult<ResponseDTO>> GetStudent(int id)
         {
             var DesiredStudentDto = await _studentRepository.GetStudentByIdAsync(id);
 

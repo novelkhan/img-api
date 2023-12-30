@@ -7,9 +7,9 @@ namespace img_api.Interfaces
     {
         Task<int> Save(StudentDTO studentDto);
         //Task<List<StudentDTO>?> GetAllStudentsAsync();
-        Task<List<Student>?> GetAllStudentsAsync();
+        Task<List<ResponseDTO>?> GetAllStudentsAsync();
         //Task<StudentDTO?> GetStudentByIdAsync(int? id);
-        Task<Student?> GetStudentByIdAsync(int? id);
+        Task<ResponseDTO?> GetStudentByIdAsync(int? id);
         Task<int> StudentUpdateAsync(StudentDTO studentDto);
         Task<int?> DeleteStudentAsync(int? id);
     }
