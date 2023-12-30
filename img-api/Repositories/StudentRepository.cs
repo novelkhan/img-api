@@ -13,18 +13,24 @@ namespace img_api.Repositories
         {
             _context = context;
         }
-        public async Task<List<StudentDTO>?> GetAllStudentsAsync()
+        //public async Task<List<StudentDTO>?> GetAllStudentsAsync()
+        public async Task<List<Student>?> GetAllStudentsAsync()
         {
 
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            return await _context.Students?
+            //                  .Select(student => new StudentDTO()
+            //                  {
+            //                      Id = student.StudentId,
+            //                      Name = student.Name,
+            //                      Roll = student.Roll,
+            //                      Image = BytesArrayToIFormFile(student.Photo)
+            //                  }).ToListAsync();
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            return await _context.Students?
-                  .Select(student => new StudentDTO()
-                  {
-                      Id = student.StudentId,
-                      Name = student.Name,
-                      Roll = student.Roll,
-                      Image = BytesArrayToIFormFile(student.Photo)
-                  }).ToListAsync();
+            return await _context.Students?.ToListAsync();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
@@ -60,21 +66,23 @@ namespace img_api.Repositories
 
 
 
-        public async Task<StudentDTO?> GetStudentByIdAsync(int? id)
+        //public async Task<StudentDTO?> GetStudentByIdAsync(int? id)
+        public async Task<Student?> GetStudentByIdAsync(int? id)
         {
             if (id == null || _context.Students == null)
             {
                 return null;
             }
 
-            return await _context.Students.Where(x => x.StudentId == id)
-                .Select(student => new StudentDTO()
-                {
-                    Id = student.StudentId,
-                    Name = student.Name,
-                    Roll = student.Roll,
-                    Image = BytesArrayToIFormFile(student.Photo)
-                }).FirstOrDefaultAsync();
+            //return await _context.Students.Where(x => x.StudentId == id)
+            //    .Select(student => new StudentDTO()
+            //    {
+            //        Id = student.StudentId,
+            //        Name = student.Name,
+            //        Roll = student.Roll,
+            //        Image = BytesArrayToIFormFile(student.Photo)
+            //    }).FirstOrDefaultAsync();
+            return await _context.Students.Where(x => x.StudentId == id).FirstOrDefaultAsync();
         }
 
 

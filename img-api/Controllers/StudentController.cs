@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Text.Json.Nodes;
+using System.Text.Json;
 
 
 namespace img_api.Controllers
@@ -24,7 +25,7 @@ namespace img_api.Controllers
 
         //GET: api/Student
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<StudentDTO>>> GetStudent()
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
         {
             var students = await _studentRepository.GetAllStudentsAsync();
 
@@ -39,7 +40,7 @@ namespace img_api.Controllers
 
         //GET: api/Student/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<StudentDTO>> GetStudent(int id)
+        public async Task<ActionResult<Student>> GetStudent(int id)
         {
             var DesiredStudentDto = await _studentRepository.GetStudentByIdAsync(id);
 

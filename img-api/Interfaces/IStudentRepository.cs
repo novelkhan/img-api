@@ -6,8 +6,10 @@ namespace img_api.Interfaces
     public interface IStudentRepository
     {
         Task<int> Save(StudentDTO studentDto);
-        Task<List<StudentDTO>?> GetAllStudentsAsync();
-        Task<StudentDTO?> GetStudentByIdAsync(int? id);
+        //Task<List<StudentDTO>?> GetAllStudentsAsync();
+        Task<List<Student>?> GetAllStudentsAsync();
+        //Task<StudentDTO?> GetStudentByIdAsync(int? id);
+        Task<Student?> GetStudentByIdAsync(int? id);
         Task<int> StudentUpdateAsync(StudentDTO studentDto);
         Task<int?> DeleteStudentAsync(int? id);
     }
