@@ -12,8 +12,8 @@ using img_api.Data;
 namespace imgapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240220040552_NameExtension")]
-    partial class NameExtension
+    [Migration("20240220153905_mg1")]
+    partial class mg1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
