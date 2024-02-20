@@ -9,7 +9,7 @@ namespace img_api.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        [StringLength(15, MinimumLength = 3, ErrorMessage = "Name must be at least {2}, and maximum {1} characters")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Name must be at least {2}, and maximum {1} characters")]
         public string Name { get; set; }
         [Required]
         public int Age { get; set; }

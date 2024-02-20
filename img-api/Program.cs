@@ -1,6 +1,7 @@
 using img_api.Data;
 using img_api.Interfaces;
 using img_api.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -30,6 +31,26 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.InvalidModelStateResponseFactory = actionContext =>
+    {
+        var errors = actionContext.ModelState
+        .Where(x => x.Value.Errors.Count > 0)
+        .SelectMany(x => x.Value.Errors)
+        .Select(x => x.ErrorMessage).ToArray();
+
+        var toReturn = new
+        {
+            Errors = errors
+        };
+
+        return new BadRequestObjectResult(toReturn);
+    };
+});
+
 
 var app = builder.Build();
 
