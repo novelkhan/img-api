@@ -93,7 +93,8 @@ namespace img_api.Controllers
             _context.Men.Add(man);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMan", new { id = man.Id }, man);
+            //return CreatedAtAction("GetMan", new { id = man.Id }, man);
+            return Ok(new JsonResult(new { title = "Man Added", message = "The man has been added" }));
         }
 
         // DELETE: api/Man/5
